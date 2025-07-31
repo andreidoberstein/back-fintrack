@@ -1,0 +1,26 @@
+{
+  "name": "@back-fintrack/back-fintrack-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@back-fintrack/back-fintrack"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/back-fintrack-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@back-fintrack/back-fintrack:build",
+          "@back-fintrack/back-fintrack:serve"
+        ]
+      }
+    }
+  }
+}
